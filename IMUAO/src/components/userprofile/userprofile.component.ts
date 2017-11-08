@@ -73,7 +73,7 @@ public editAble: boolean;
     var uiduser = this._firebaseService.getCurrentuserid();
     var updateData: any = this.Datastudentform.value;
     var result = this._firebaseService.updateStudent(uiduser,studentData);
-
+    console.log(result);
 
 }
 
