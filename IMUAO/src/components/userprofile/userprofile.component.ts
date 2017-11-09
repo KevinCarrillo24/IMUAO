@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 
-import { AuthProvider } from "../../services/firebase.service";
+import { FirebaseProvider } from "../../services/firebase.service";
 import firebase from 'firebase';
 
 import { Student } from '../../models/student';
@@ -44,7 +44,7 @@ public editAble: boolean;
     }
   }
 
-  constructor(private formBuilder: FormBuilder, public _firebaseService: AuthProvider) {
+  constructor(private formBuilder: FormBuilder, public _firebaseService: FirebaseProvider) {
 
     this.Datastudentform = this.formBuilder.group({
       studentemail: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
