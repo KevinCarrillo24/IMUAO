@@ -4,7 +4,7 @@ import { Project } from '../models/project';
 import firebase from 'firebase';
 
 @Injectable()
-export class AuthProvider {
+export class FirebaseProvider {
   constructor() {
   }
 
@@ -93,6 +93,7 @@ export class AuthProvider {
   }
 
   /**
+   * ----------------------------------  METODO PRIVADO-----------------------------------------------
    * Metodo que almacena los proyectos en un array y devuelve el array
    * 
    * @param datos El Array que poseé los projectos 'ya' almacenados
