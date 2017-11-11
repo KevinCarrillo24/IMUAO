@@ -17,7 +17,7 @@ import { Signup } from '../components/signup/signup.component';
 import { ResetPassword } from '../components/reset-password/reset-password.component';
 
 //Import services
-import { AuthProvider } from "../services/firebase.service";
+import { FirebaseProvider } from "../services/firebase.service";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -53,7 +53,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    AuthProvider,
+    FirebaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
