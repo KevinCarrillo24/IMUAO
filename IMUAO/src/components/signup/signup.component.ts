@@ -4,13 +4,13 @@ import { IonicPage, NavController, NavParams, LoadingController,
 AlertController } from 'ionic-angular';
 import { FormBuilder, Validator, Validators } from '@angular/forms';
 
-import { AuthProvider } from '../../services/firebase.service';
+import { FirebaseProvider } from '../../services/firebase.service';
 
 import { EmailValidator } from '../../validators/email';
 
 import { LoginPage } from '../../pages/login/login';
 import { Student } from '../../models/student';
-//import {HomePage}from'../home/home';
+import {HomePage} from '../../pages/home/home';
 
 
 //@IonicPage()
@@ -27,7 +27,7 @@ export class Signup {
     public studentskills: string;
 
 
-    constructor(public nav: NavController, public authData: AuthProvider,
+    constructor(public nav: NavController, public authData: FirebaseProvider,
         public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
         public alertCtrl: AlertController) {
 
@@ -63,8 +63,9 @@ export class Signup {
                 this.studentskills))
                 .then(() => {
                     this.loading.dismiss().then(() => {
-                        //this.nav.setRoot(HomePage);
-                        this.nav.push(LoginPage);
+                        this.nav.setRoot(HomePage);
+                        //this.nav.push(LoginPage);
+                        console.log("El usuario se ha registrado exitosamente y puede ingresar a Home");
                     });
                 }, (error) => {
                     this.loading.dismiss().then(() => {

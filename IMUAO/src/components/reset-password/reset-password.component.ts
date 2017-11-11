@@ -4,7 +4,7 @@ import { IonicPage, NavParams, NavController,
 
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthProvider } from '../../services/firebase.service';
+import { FirebaseProvider } from '../../services/firebase.service';
 import { EmailValidator } from '../../validators/email';
 
 @Component({
@@ -15,7 +15,7 @@ export class ResetPassword {
     public resetPasswordForm;
 
 
-    constructor(public authData: AuthProvider, public formBuilder: FormBuilder,
+    constructor(public authData: FirebaseProvider, public formBuilder: FormBuilder,
         public nav: NavController, public loadingCtrl: LoadingController,
         public alertCtrl: AlertController) {
 
