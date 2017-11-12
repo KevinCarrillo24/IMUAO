@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { NavController } from 'ionic-angular';
 
 import { FirebaseProvider } from "../../services/firebase.service";
 import firebase from 'firebase';
 
 import { Student } from '../../models/student';
+import { LoginPage } from '../../pages/login/login';
+
 
 @Component({
   selector: 'user-profile',
@@ -44,7 +47,7 @@ public editAble: boolean;
     }
   }
 
-  constructor(private formBuilder: FormBuilder, public _firebaseService: FirebaseProvider) {
+  constructor(private formBuilder: FormBuilder, public _firebaseService: FirebaseProvider, public navCtrl: NavController) {
 
     this.Datastudentform = this.formBuilder.group({
       studentemail: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
@@ -75,6 +78,11 @@ public editAble: boolean;
     var result = this._firebaseService.updateStudent(uiduser,studentData);
     console.log(result);
 
+}
+logOut() {
+  this._firebaseService.logoutStudent().then(() => {
+      this.navCtrl.setRoot(LoginPage);
+  });
 }
 
   }

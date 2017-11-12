@@ -1,0 +1,40 @@
+<form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+    <!--divs-->
+    <div class="row responsive-md">
+        <div class="col col-50 col-offset-25">
+            <!---->
+
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input #email formControlName="email" type="email" placeholder="Ingresa tu correo electrónico" [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+                <p>Por favor ingresa un correo válido.</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Contraseña</ion-label>
+                <ion-input show-hide-input #password formControlName="password" clearOnEdit="false" type="{{type}}" placeholder="Ingresa la contraseña" [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label for="checkbox" *ngIf="!showpass">Mostrar contraseña</ion-label>
+                <ion-label for="checkbox" *ngIf="showpass">Ocultar contraseña</ion-label>
+                <ion-checkbox class="marginTop" id="checkbox" style="border-style: none;" ng-Model="showpass" (click)="showPassword(input)"></ion-checkbox>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+                <p>Tu contraseña debe contener más de 6 caracteres.</p>
+            </ion-item>
+
+            <button ion-button block type="submit">
+          Ingresar
+        </button>
+            <button ion-button block clear (click)="goToSignup()">
+          Crear una nueva cuenta
+        </button>
+
+            <button ion-button block clear (click)="goToResetPassword()">
+          Olvidé mi contraseña
+        </button>
+        </div>
+    </div>
+</form>
