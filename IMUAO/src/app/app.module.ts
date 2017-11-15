@@ -9,12 +9,15 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { ProfilePage } from '../pages/profile/profile';
+
 
 //Import Components
 import { UserProfile } from '../components/userprofile/userprofile.component';
 import { Login } from '../components/login/login.component';
 import { Signup } from '../components/signup/signup.component';
 import { ResetPassword } from '../components/reset-password/reset-password.component';
+import { CardProject } from '../components/card-project/cardproject.component';
 
 //Import services
 import { FirebaseProvider } from "../services/firebase.service";
@@ -27,13 +30,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
+    ProfilePage,
     UserProfile,
     LoginPage,
     SignupPage,
     Signup,
     Login,
     ResetPasswordPage,
-    ResetPassword
+    ResetPassword,
+    CardProject
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     SignupPage,
+    ProfilePage,
     ResetPasswordPage
   ],
   providers: [
