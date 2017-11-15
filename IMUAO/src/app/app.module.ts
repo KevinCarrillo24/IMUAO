@@ -6,12 +6,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 //Import Components
 import { UserProfile } from '../components/userprofile/userprofile.component';
+import { Login } from '../components/login/login.component';
+import { Signup } from '../components/signup/signup.component';
+import { ResetPassword } from '../components/reset-password/reset-password.component';
 
 //Import services
-import { AuthProvider } from "../services/firebase.service";
+import { FirebaseProvider } from "../services/firebase.service";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +27,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    UserProfile
+    UserProfile,
+    LoginPage,
+    SignupPage,
+    Signup,
+    Login,
+    ResetPasswordPage,
+    ResetPassword
   ],
   imports: [
     BrowserModule,
@@ -33,12 +45,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LoginPage,
+    SignupPage,
+    ResetPasswordPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    AuthProvider,
+    FirebaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,0 +1,45 @@
+<form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+
+    <ion-item>
+        <ion-label stacked>Nombre(s)</ion-label>
+        <ion-input #name formControlName="name" type="text" placeholder="Ingresa tu(s) nombre(s)">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Apellido(s)</ion-label>
+        <ion-input #lastname formControlName="lastname" type="text" placeholder="Ingresa tu(s) apellido(s)">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Código</ion-label>
+        <ion-input #code formControlName="code" type="number" placeholder="Ingresa tu código estudiantil">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Número telefónico</ion-label>
+        <ion-input #cellphone formControlName="cellphone" type="number" placeholder="Ingresa tu número de teléfono">
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input #email formControlName="email" type="email" placeholder="Ingresa tu correo electrónico" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
+        </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+        <p>Por favor ingresa un correo válido.</p>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Contraseña</ion-label>
+        <ion-input #password formControlName="password" type="password" placeholder="Ingresa tu contraseña" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
+        </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+        <p>Tu contraseña debe contener más de 6 caracteres.</p>
+    </ion-item>
+
+
+    <button ion-button block type="submit">
+          Crear cuenta
+        </button>
+</form>
