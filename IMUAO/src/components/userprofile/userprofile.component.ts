@@ -6,6 +6,7 @@ import { FirebaseProvider } from "../../services/firebase.service";
 import firebase from 'firebase';
 
 import { Student } from '../../models/student';
+import { Project } from '../../models/project';
 import { LoginPage } from '../../pages/login/login';
 
 
@@ -16,20 +17,25 @@ import { LoginPage } from '../../pages/login/login';
 export class UserProfile {
 private Datastudentform: FormGroup;
 public validation_messages: any;
+public Projects: Array<Project>;
+public studentInfo: Student;
 public studentphoto: string;
-public studentfullname: string;
-public studentcode: number;
-public studentphone: number;
-public studentmail: string;
 public editAble: boolean;
 
 
   ngOnInit() {
+
+  this.studentInfo = new Student(
+      0,
+      "trillos@uao.edu.co",
+      "",
+      "",
+      "",
+      3178387757,
+      ""
+    );
+
     this.studentphoto = "http://imagenesdedibujosanimados.com/wp-content/uploads/2013/01/dragon-dragon-ball.gif";
-    this.studentfullname = "Luis Fernando Jojoa";
-    this.studentcode = 2131248;
-    this.studentphone = 3178387757;
-    this.studentmail = "luis.jojoa.q@gmail.com";
     this.editAble = true;
 
     this.validation_messages = {
@@ -74,9 +80,15 @@ public editAble: boolean;
     );
 
     var uiduser = this._firebaseService.getCurrentuserid();
-    var updateData: any = this.Datastudentform.value;
-    var result = this._firebaseService.updateStudent(uiduser,studentData);
-    console.log(result);
+
+    //var updateData: any = this.Datastudentform.value;
+
+    this.studentInfo = this._firebaseService.getStudentinfo(uiduser);
+    console.log(this.studentInfo);
+
+    this.projects = this._firebaseService.getPersonalProjects(uiduser);
+    console.log(this.projects);
+
 
 }
 logOut() {

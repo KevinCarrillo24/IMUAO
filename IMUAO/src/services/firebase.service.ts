@@ -10,11 +10,11 @@ export class FirebaseProvider {
 
   /**
    * Metodo para Registrar un Nuevo Estudiante a la Aplicación y Base de Datos
-   * 
+   *
    * @param email Correo Electronico de Registro de Estudiante
    * @param password Contraseña de Registro de Estudiante
    * @param student Datos Personales del Estudiante
-   * 
+   *
    */
   signupStudent(email: string, password: string, student: Student): Promise<any> {
     return firebase.auth().createUserWithEmailAndPassword(email, password).then( newUser => {
@@ -32,7 +32,7 @@ export class FirebaseProvider {
 
   /**
    * Metodo para insertar nuevos Proyectos de Usuario en la Base de Datos
-   * 
+   *
    * @param uid Identificador de usuario necesario para la ruta de la base de datos
    * @param project Datos del proyecto que van a ser almacenados
    */
@@ -44,9 +44,9 @@ export class FirebaseProvider {
 
   /**
    * Metodo para Obtener los Proyectos de Usuario por ID de la base de datos
-   * 
+   *
    * @param uid Identificador del usuario
-   * 
+   *
    * @returns Array de proyectos de un solo usuario
    */
   getPersonalProjects(uid: string): Project[]{
@@ -54,7 +54,7 @@ export class FirebaseProvider {
     firebase.database().ref('Students/'+uid+'/Projects').on('value', personSnapshot => {
       var data = personSnapshot.val();
       // console.log(data);
-      
+
       for (var object in data) {
         if (data.hasOwnProperty(object)) {
           var element = data[object];
@@ -68,9 +68,9 @@ export class FirebaseProvider {
   }
 
   /**
-   * Metodo que busca todos los Usuarios almacenados en la base de datos, y crea un Array de los Projectos existentes 
+   * Metodo que busca todos los Usuarios almacenados en la base de datos, y crea un Array de los Projectos existentes
    * de todos los usuarios
-   * 
+   *
    * @returns un Array de Projects
    */
   getAllProjects(): Project[]{
@@ -95,10 +95,10 @@ export class FirebaseProvider {
   /**
    * ----------------------------------  METODO PRIVADO-----------------------------------------------
    * Metodo que almacena los proyectos en un array y devuelve el array
-   * 
+   *
    * @param datos El Array que poseé los projectos 'ya' almacenados
    * @param projects el objeto con los proximos proyectos para almacenar
-   * 
+   *
    * @returns El array que envia los proyectos almacenados
    */
   setProjectsArray(datos: Project[], projects: Object): Project[]{
@@ -113,9 +113,9 @@ export class FirebaseProvider {
   }
 
   /**
-   * Metodo para Actualizar los datos de usuario en la base de datos, requiere el UID del usuario en la base de datos y la informacion a 
+   * Metodo para Actualizar los datos de usuario en la base de datos, requiere el UID del usuario en la base de datos y la informacion a
    * modificar
-   * 
+   *
    * @param uid Identificador del usuario
    * @param student Datos de usuario para actualizar
    */
@@ -133,14 +133,21 @@ export class FirebaseProvider {
 
   /**
    * Metodo para obtener los datos de usuario
-   * 
+   *
    * @param uid Identificador de usuario
    */
   getStudentinfo(uid: string): Student {
-    var studentInfo: Student;
+    var studentInfo: Student = new Student(
+      0,
+      "trillos@uao.edu.co",
+      "",
+      "",
+      "",
+      0,
+      ""
+    );
     firebase.database().ref("/Students/" + uid + "/PersonalInfo").on('value', personSnapshot => {
     var data = personSnapshot.val();
-    console.log(data);
     studentInfo = new Student(
       data.studentcode,
       data.studentemail,
@@ -156,7 +163,7 @@ export class FirebaseProvider {
 
   /**
    * Metodo para obtener el identificador del usuario logueado
-   * 
+   *
    * @returns el UID del usuario
    */
   getCurrentuserid(): string{
@@ -165,7 +172,7 @@ export class FirebaseProvider {
 
   /**
    * Metodo para poder ingresar a la aplicacion y su contenido
-   * 
+   *
    * @param email Correo autorizado en Firebase
    * @param password Contraseña relacionada con el correo de usuario
    */
@@ -175,9 +182,9 @@ export class FirebaseProvider {
 
   /**
    * Metodo para modificar contraseña de usuario en caso de olvido
-   * 
+   *
    * @param email Correo autorizado en Firebase
-   */ 
+   */
   resetPassword(email: string): Promise<void> {
     return firebase.auth().sendPasswordResetEmail(email);
   }
