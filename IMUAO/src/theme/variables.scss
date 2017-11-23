@@ -28,7 +28,7 @@ $colors: ( primary: #1ac8de, secondary: #de301a, danger: #f53d3d, light: #ffffff
 // iOS only Sass variables can go here
 // App Material Design Variables
 $text-input-ios-highlight-color: #333;
-$label-ios-text-color: black;
+//$label-ios-text-color: black;
 $text-input-ios-highlight-color: color($colors, secondary);
 $label-ios-text-color-focused: color($colors, secondary);
 $text-input-md-highlight-color: #333;
