@@ -25,6 +25,8 @@ export class Signup {
     public studentemail:string;
     public studentphoto:string;
     public studentskills: string;
+    public type= "password";
+    public showpass = false;
 
 
     constructor(public nav: NavController, public authData: FirebaseProvider,
@@ -84,6 +86,10 @@ export class Signup {
             this.loading = this.loadingCtrl.create();
             this.loading.present();
         }
+    }
+    showPassword(): any {
+        this.type = this.type === 'password' ?  'text' : 'password';
+        this.showpass = !this.showpass;
     }
 
 }

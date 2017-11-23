@@ -1,45 +1,53 @@
 <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <div class="row responsive-md">
 
-    <ion-item>
-        <ion-label stacked>Nombre(s)</ion-label>
-        <ion-input #name formControlName="name" type="text" placeholder="Ingresa tu(s) nombre(s)">
-        </ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label stacked>Apellido(s)</ion-label>
-        <ion-input #lastname formControlName="lastname" type="text" placeholder="Ingresa tu(s) apellido(s)">
-        </ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label stacked>Código</ion-label>
-        <ion-input #code formControlName="code" type="number" placeholder="Ingresa tu código estudiantil">
-        </ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label stacked>Número telefónico</ion-label>
-        <ion-input #cellphone formControlName="cellphone" type="number" placeholder="Ingresa tu número de teléfono">
-        </ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label stacked>Email</ion-label>
-        <ion-input #email formControlName="email" type="email" placeholder="Ingresa tu correo electrónico" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
-        </ion-input>
-    </ion-item>
-    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
-        <p>Por favor ingresa un correo válido.</p>
-    </ion-item>
+        <div class="col col-50 col-offset-25">
+            <ion-item class="item-trns">
+                <!-- <ion-label floating>Nombre(s)</ion-label> -->
+                <ion-icon name="person" item-left> </ion-icon>
+                <ion-input #name formControlName="name" type="text" placeholder="Nombre(s)">
+                </ion-input>
+            </ion-item>
+            <ion-item class="item-trns">
+                <!-- <ion-label floating>Apellido(s)</ion-label> -->
+                <ion-icon name="person" item-left> </ion-icon>
+                <ion-input #lastname formControlName="lastname" type="text" placeholder="Apellido(s)">
+                </ion-input>
+            </ion-item>
+            <ion-item class="item-trns">
+                <!-- <ion-label floating>Código</ion-label> -->
+                <ion-icon name="barcode" item-left></ion-icon>
+                <ion-input #code formControlName="code" type="number" placeholder="Código">
+                </ion-input>
+            </ion-item>
+            <ion-item class="item-trns">
+                <!-- <ion-label floating>Número telefónico</ion-label> -->
+                <ion-icon name="call" item-left></ion-icon>
+                <ion-input #cellphone formControlName="cellphone" type="number" placeholder="Número telefónico">
+                </ion-input>
+            </ion-item>
+            <ion-item class="item-trns">
+                <!-- <ion-label floating>Email</ion-label> -->
+                <ion-icon name="mail" item-left></ion-icon>
+                <ion-input #email formControlName="email" type="email" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty" placeholder="Correo">
+                </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+                <p>Por favor ingresa un correo válido.</p>
+            </ion-item>
+            <ion-item class="item-trns">
+                <!-- <ion-label floating>Contraseña</ion-label> -->
+                <ion-icon name="lock" item-left> </ion-icon>
+                <ion-input #password formControlName="password" clearOnEdit="false" type="{{type}}" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty" placeholder="Contraseña"> </ion-input>
+                <!-- <button ion-button class="buttonEye" clear large color="dark" type="button" item-right (click)="showPassword()"> <ion-icon name="eye" *ngIf="!showpass"> </ion-icon>  <ion-icon name="eye-off" *ngIf="showpass"></ion-icon> </button> -->
+                <ion-icon name="eye" large *ngIf="!showpass" item-right (click)="showPassword()"> </ion-icon>
+                <ion-icon name="eye-off" large *ngIf="showpass" item-right (click)="showPassword()"></ion-icon>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+                <p>Tu contraseña debe contener más de 6 caracteres.</p>
+            </ion-item>
 
-    <ion-item>
-        <ion-label stacked>Contraseña</ion-label>
-        <ion-input #password formControlName="password" type="password" placeholder="Ingresa tu contraseña" [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
-        </ion-input>
-    </ion-item>
-    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
-        <p>Tu contraseña debe contener más de 6 caracteres.</p>
-    </ion-item>
-
-
-    <button ion-button block type="submit">
-          Crear cuenta
-        </button>
+            <button ion-button block type="submit" color="secondary">Hecho</button>
+        </div>
+    </div>
 </form>

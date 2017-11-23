@@ -17,7 +17,7 @@ import { LoginPage } from '../../pages/login/login';
 export class UserProfile {
 private Datastudentform: FormGroup;
 public validation_messages: any;
-public Projects: Array<Project>;
+public projects: Array<Project>;
 public studentInfo: Student;
 public studentphoto: string;
 public editAble: boolean;
