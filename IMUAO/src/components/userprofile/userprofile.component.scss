@@ -1,0 +1,84 @@
+$text-input-md-show-success-highlight: false;
+$text-input-md-show-error-highlight: false;
+
+.ios,
+.md {
+  user-profile {
+    .profileHeader {
+      .profileImage {
+        ion-avatar {
+          padding-bottom: 0.6rem;
+
+          img {
+            margin: auto;
+            width: 14rem;
+            height: 14rem;
+            box-shadow: 1px 2px 5px #888888;
+          }
+        }
+      }
+
+      .personalInfo {
+        .profileinfostudent {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .studentname {
+            font-size: 16px;
+          }
+
+          .studentcode {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .separator {
+      border: 1px solid black;
+    }
+
+    ion-card-content {
+      padding: 0 0 0.2rem;
+
+      .editableInfo {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+        .alertvalidator {
+          display: flex;
+          justify-content: center;
+
+          p {
+            font-size: 9px;
+            color: red;
+          }
+        }
+
+        .editFields {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+
+        .item.item-input .item-inner {
+          border: 0;
+          border-bottom: 1px solid green;
+          outline: 0;
+          padding-left: 10px;
+          color: #6c6c6c;
+        }
+
+        .item.item-input.input-has-focus .item-inner {
+          box-shadow: none;
+          border-bottom: 2px solid green;
+        }
+
+        .item.item-input.input-has-focus .input-cover {
+          display: none;
+        }
+      }
+    }
+  }
+}

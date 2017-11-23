@@ -1,0 +1,43 @@
+/* .icon {
+    font-size: 30px;
+} */
+
+.iconPosition {
+    padding-top: 35px;
+}
+
+.centerText {
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.backgroundLogin {
+    background-image: url('../assets/imgs/Fon2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.backgroundLogin .scroll-content {
+    overflow: hidden;
+}
+
+.logo-row {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.item-trns {
+    background-color: transparent;
+    color: #333;
+}
+
+#item-trns {
+    background-color: transparent;
+    color: #333;
+}
+
+.borderColor {
+    border: 1px solid;
+}

@@ -1,2 +1,0 @@
-# IMUAO
-GitHub Desktop

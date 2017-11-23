@@ -1,0 +1,62 @@
+<ion-card>
+    <div class="profileHeader">
+        <div class="profileImage">
+            <ion-item>
+                <ion-avatar>
+                    <img [src]="studentphoto">
+                </ion-avatar>
+            </ion-item>
+        </div>
+        <div class="personalInfo">
+            <ion-item>
+                <div class="profileinfostudent">
+                    <p class="studentname">{{studentInfo.studentfullname}} {{studentInfo.studentfulllastname}}</p>
+                    <p class="studentcode">{{studentInfo.studentcode}}</p>
+                </div>
+            </ion-item>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <ion-card-content>
+        <form [formGroup]="Datastudentform" (ngSubmit)="updatestudentdata()">
+            <div class="editableInfo">
+                <ion-item class="editFields">
+                    <ion-input readonly="{{editAble}}" formControlName="studentphonenumber" value="{{studentInfo.studentphonenumber}}" placeholder="Número telefónico"></ion-input>
+                    <ion-label>
+                        <ion-icon name="call"></ion-icon>
+                    </ion-label>
+                </ion-item>
+                <ng-container *ngFor="let validation of validation_messages.studentphonenumber">
+                    <div class="alertvalidator" *ngIf="Datastudentform.controls.studentphonenumber.hasError(validation.type) && (Datastudentform.controls.studentphonenumber.dirty || Datastudentform.controls.studentphonenumber.touched)">
+                        <p>{{validation.message}}</p>
+                    </div>
+                </ng-container>
+                <ion-item class="editFields">
+                    <ion-input readonly="{{editAble}}" type="email" formControlName="studentemail" value="{{studentInfo.studentemail}}" placeholder="Correo electrónico"></ion-input>
+                    <ion-label>
+                        <ion-icon name="mail"></ion-icon>
+                    </ion-label>
+                </ion-item>
+                <ng-container *ngFor="let validation of validation_messages.studentemail">
+                    <div class="alertvalidator" *ngIf="Datastudentform.controls.studentemail.hasError(validation.type) && (Datastudentform.controls.studentemail.dirty || Datastudentform.controls.studentemail.touched)">
+                        <p>{{validation.message}}</p>
+                    </div>
+                </ng-container>
+            </div>
+            <ion-item>
+                <ion-label>Editar información</ion-label>
+                <ion-toggle checked="false" (ionChange)="editInfo()"></ion-toggle>
+            </ion-item>
+            <div class="btnsubmit" *ngIf="!editAble" text-center>
+                <button ion-button small type="submit" [disabled]="!Datastudentform.valid">Actualizar</button>
+            </div>
+        </form>
+
+
+    </ion-card-content>
+
+</ion-card>
+
+<button ion-button (click)="logOut()">Cerrar sesión  <ion-icon name="log-out"></ion-icon> </button>

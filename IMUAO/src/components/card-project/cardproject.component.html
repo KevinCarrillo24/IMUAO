@@ -1,0 +1,24 @@
+<ion-card *ngFor="let project of arrayProjects">
+    <img src="../assets/imgs/logo.png" />
+    <ion-card-content>
+        <ion-card-title>
+            {{project.projectname}}
+        </ion-card-title>
+        <h4>
+            {{project.projectown}}
+        </h4>
+        <p>
+            {{project.projectdescription}}
+        </p><br>
+
+        <ion-chip>
+            <ion-label>{{project.projecttags[0]}}</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-label>{{project.projecttags[1]}}</ion-label>
+        </ion-chip>
+        <ion-chip>
+            <ion-label>{{project.projecttags[2]}}</ion-label>
+        </ion-chip>
+    </ion-card-content>
+</ion-card>
