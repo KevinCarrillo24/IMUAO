@@ -24,17 +24,6 @@ public editAble: boolean;
 
 
   ngOnInit() {
-
-  this.studentInfo = new Student(
-      0,
-      "trillos@uao.edu.co",
-      "",
-      "",
-      "",
-      3178387757,
-      ""
-    );
-
     this.studentphoto = "http://imagenesdedibujosanimados.com/wp-content/uploads/2013/01/dragon-dragon-ball.gif";
     this.editAble = true;
 
@@ -67,17 +56,25 @@ public editAble: boolean;
     this.editAble = !this.editAble;
   }
 
-  updatestudentdata(){
+  getProjects(){
+    var uiduser = this._firebaseService.getCurrentuserid();
 
-    var studentData: Student = new Student(
-      2131248,
-      "luis.jojoa.q@gmail.com",
-      "photo",
-      "Luis",
-      "Jojoa",
-      3178387757,
-      "web developer, programming"
-    );
+    this._firebaseService.getPersonalProjects(uiduser).on('value', personSnapshot => {
+      var data = personSnapshot.val();
+      var projectsresult: Project[] = new Array<Project>();
+      for (var object in data) {
+        if (data.hasOwnProperty(object)) {
+          var element = data[object];
+          var tempProject = new Project(element.projectimage,element.projectname,element.projectown,element.projectdescription,element.projecttags);
+          projectsresult.push(tempProject);
+        }
+      }
+      this.projects = projectsresult;
+    });
+    console.log("Proyectos", this.projects);
+  }
+
+  updatestudentdata(){
 
     var uiduser = this._firebaseService.getCurrentuserid();
 
@@ -86,19 +83,6 @@ public editAble: boolean;
     // this.studentInfo = this._firebaseService.getStudentinfo(uiduser);
     // console.log(this.studentInfo);
 
-    this._firebaseService.getPersonalProjects(uiduser).on('value', personSnapshot => {
-      var data = personSnapshot.val();
-      var datos: Project[] = new Array<Project>();
-      for (var object in data) {
-        if (data.hasOwnProperty(object)) {
-          var element = data[object];
-          var tempProject = new Project(element.projectimage,element.projectname,element.projectown,element.projectdescription,element.projecttags);
-          datos.push(tempProject);
-        }
-      }
-      this.projects = datos;
-    });
-    console.log("Proyectos", this.projects);
 }
 
 logOut() {
