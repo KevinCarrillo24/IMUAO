@@ -14,12 +14,15 @@ import { SignupPage } from '../../pages/signup/signup';
 import { ResetPasswordPage } from '../../pages/reset-password/reset-password';
 import { Signup } from '../signup/signup.component';
 
+import { Student } from '../../models/student';
+
 
 @Component({
     selector: 'component-login',
     templateUrl: 'login.component.html',
 })
 export class Login {
+    user: Student;
     public loginForm;
     loading: any;
     public type= "password";
@@ -43,24 +46,38 @@ export class Login {
 
         } else {
             this.authData.loginStudent(this.loginForm.value.email, this.loginForm.value.password).then(authData => {
+                var uid: string = authData.uid;
                 this.loading.dismiss().then(() => {
-                    this.nav.setRoot(HomePage);
-                });
-            }, error => {
-                this.loading.dismiss().then(() => {
-                    let alert = this.alertCtrl.create({
-                        message: "El correo o la contraseña son incorrectos",
-                        buttons: [
-                            {
-                                text: "Ok",
-                                role: 'cancel'
-                            }
-                        ]
-                    });
-                    alert.present();
+                    var studentInfo: Student;
+                    this.authData.getStudentinfo(authData.uid).on('value', personSnapshot => {
+                        var data = personSnapshot.val();
+                        studentInfo = new Student(
+                          data.studentcode,
+                          data.studentemail,
+                          data.studentphoto,
+                          data.studentfullname,
+                          data.studentfulllastname,
+                          data.studentphonenumber,
+                          data.studentskills
+                        );
+                    this.user = studentInfo;
+                    this.nav.setRoot(HomePage,{student: this.user});
                 });
             });
-
+        }, error => {
+            this.loading.dismiss().then(() => {
+                let alert = this.alertCtrl.create({
+                    message: "El correo o la contraseña son incorrectos",
+                    buttons: [
+                        {
+                            text: "Ok",
+                            role: 'cancel'
+                        }
+                    ]
+                });
+                alert.present();
+            });
+        });
             this.loading = this.loadingCtrl.create();
             this.loading.present();
         }

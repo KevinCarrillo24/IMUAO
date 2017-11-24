@@ -49,22 +49,9 @@ export class FirebaseProvider {
    *
    * @returns Array de proyectos de un solo usuario
    */
-  getPersonalProjects(uid: string): Project[]{
+  getPersonalProjects(uid: string){
     var datos: Project[] = new Array<Project>();
-    firebase.database().ref('Students/'+uid+'/Projects').on('value', personSnapshot => {
-      var data = personSnapshot.val();
-      // console.log(data);
-
-      for (var object in data) {
-        if (data.hasOwnProperty(object)) {
-          var element = data[object];
-          var tempProject = new Project(element.projectimage,element.projectname,element.projectown,element.projectdescription,element.projecttags);
-          datos.push(tempProject);
-          // console.log(datos);
-        }
-      }
-    });
-    return datos;
+    return firebase.database().ref('Students/'+uid+'/Projects');
   }
 
   /**
@@ -87,7 +74,7 @@ export class FirebaseProvider {
           }
         }
       }
-      console.log(datos);
+      // console.log(datos);
     });
     return datos;
   }
@@ -136,29 +123,23 @@ export class FirebaseProvider {
    *
    * @param uid Identificador de usuario
    */
-  getStudentinfo(uid: string): Student {
-    var studentInfo: Student = new Student(
-      0,
-      "trillos@uao.edu.co",
-      "",
-      "",
-      "",
-      0,
-      ""
-    );
-    firebase.database().ref("/Students/" + uid + "/PersonalInfo").on('value', personSnapshot => {
-    var data = personSnapshot.val();
-    studentInfo = new Student(
-      data.studentcode,
-      data.studentemail,
-      data.studentphoto,
-      data.studentfullname,
-      data.studentfulllastname,
-      data.studentphonenumber,
-      data.studentskills
-    );
-  });
-  return studentInfo;
+  getStudentinfo(uid: string) {
+  return  firebase.database().ref("/Students/" + uid + "/PersonalInfo");
+    //    var studentInfo: Student;
+
+  //   .on('value', personSnapshot => {
+  //   var data = personSnapshot.val();
+  //   studentInfo = new Student(
+  //     data.studentcode,
+  //     data.studentemail,
+  //     data.studentphoto,
+  //     data.studentfullname,
+  //     data.studentfulllastname,
+  //     data.studentphonenumber,
+  //     data.studentskills
+  //   );
+  // });
+  // return studentInfo;
   }
 
   /**
@@ -176,9 +157,10 @@ export class FirebaseProvider {
    * @param email Correo autorizado en Firebase
    * @param password Contraseña relacionada con el correo de usuario
    */
-  loginStudent(email: string, password: string){
+  loginStudent(email: string, password: string):Promise<any>{
+    var studentInfo: Student;
     return firebase.auth().signInWithEmailAndPassword(email, password);
-  }
+}
 
   /**
    * Metodo para modificar contraseña de usuario en caso de olvido

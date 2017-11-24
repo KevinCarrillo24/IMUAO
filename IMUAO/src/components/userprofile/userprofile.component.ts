@@ -83,14 +83,24 @@ public editAble: boolean;
 
     //var updateData: any = this.Datastudentform.value;
 
-    this.studentInfo = this._firebaseService.getStudentinfo(uiduser);
-    console.log(this.studentInfo);
+    // this.studentInfo = this._firebaseService.getStudentinfo(uiduser);
+    // console.log(this.studentInfo);
 
-    this.projects = this._firebaseService.getPersonalProjects(uiduser);
-    console.log(this.projects);
-
-
+    this._firebaseService.getPersonalProjects(uiduser).on('value', personSnapshot => {
+      var data = personSnapshot.val();
+      var datos: Project[] = new Array<Project>();
+      for (var object in data) {
+        if (data.hasOwnProperty(object)) {
+          var element = data[object];
+          var tempProject = new Project(element.projectimage,element.projectname,element.projectown,element.projectdescription,element.projecttags);
+          datos.push(tempProject);
+        }
+      }
+      this.projects = datos;
+    });
+    console.log("Proyectos", this.projects);
 }
+
 logOut() {
   this._firebaseService.logoutStudent().then(() => {
       this.navCtrl.setRoot(LoginPage);
