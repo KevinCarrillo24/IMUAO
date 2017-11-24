@@ -59,7 +59,7 @@
                 <p id="alertvalidator">Por favor ingresa más de 6 caracteres.</p>
             </ion-item>
 
-            <button ion-button block type="submit" color="secondary">Hecho</button>
+            <button ion-button block type="submit" color="secondary" [disabled]="signupForm.invalid">Hecho</button>
 
             <p text-center>¿Ya eres usuario? <a class="centerText_reg" (click)="goToLogin()">Ingresa</a></p>
         </div>
