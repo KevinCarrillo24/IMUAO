@@ -49,37 +49,35 @@ export class Login {
                 var uid: string = authData.uid;
                 this.loading.dismiss().then(() => {
                     var studentInfo: Student;
-                    firebase.database().ref("/Students/" + uid + "/PersonalInfo").on('value', personSnapshot => {
-                    var data = personSnapshot.val();
-                    studentInfo = new Student(
-                      data.studentcode,
-                      data.studentemail,
-                      data.studentphoto,
-                      data.studentfullname,
-                      data.studentfulllastname,
-                      data.studentphonenumber,
-                      data.studentskills
-                    );
+                    this.authData.getStudentinfo(authData.uid).on('value', personSnapshot => {
+                        var data = personSnapshot.val();
+                        studentInfo = new Student(
+                          data.studentcode,
+                          data.studentemail,
+                          data.studentphoto,
+                          data.studentfullname,
+                          data.studentfulllastname,
+                          data.studentphonenumber,
+                          data.studentskills
+                        );
                     this.user = studentInfo;
-                    this.nav.setRoot(HomePage);
-                    console.log("Usuario", this.user);
-                }); 
-                });
-            }, error => {
-                this.loading.dismiss().then(() => {
-                    let alert = this.alertCtrl.create({
-                        message: "El correo o la contraseña son incorrectos",
-                        buttons: [
-                            {
-                                text: "Ok",
-                                role: 'cancel'
-                            }
-                        ]
-                    });
-                    alert.present();
+                    this.nav.setRoot(HomePage,{student: this.user});
                 });
             });
-
+        }, error => {
+            this.loading.dismiss().then(() => {
+                let alert = this.alertCtrl.create({
+                    message: "El correo o la contraseña son incorrectos",
+                    buttons: [
+                        {
+                            text: "Ok",
+                            role: 'cancel'
+                        }
+                    ]
+                });
+                alert.present();
+            });
+        });
             this.loading = this.loadingCtrl.create();
             this.loading.present();
         }
