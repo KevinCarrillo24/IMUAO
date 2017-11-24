@@ -1,7 +1,7 @@
 <ion-card *ngFor="let project of arrayProjects">
     <img src="{{project.projectimage}}" />
     <ion-card-content>
-        <ion-card-title color="secondary">
+        <ion-card-title color="secondaryLight">
             {{project.projectname}}
         </ion-card-title>
         <h4>
@@ -12,13 +12,13 @@
             {{project.projectdescription}}
         </p><br>
 
-        <ion-chip color="primary">
+        <ion-chip color="primaryDark">
             <ion-label>{{project.projecttags[0]}}</ion-label>
         </ion-chip>
-        <ion-chip color="primary">
+        <ion-chip color="primaryDark">
             <ion-label>{{project.projecttags[1]}}</ion-label>
         </ion-chip>
-        <ion-chip color="primary">
+        <ion-chip color="primaryDark">
             <ion-label>{{project.projecttags[2]}}</ion-label>
         </ion-chip>
     </ion-card-content>

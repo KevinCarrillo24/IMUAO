@@ -9,7 +9,6 @@ import { ListPage } from '../pages/list/list';import { LoginPage } from '../page
 import { SignupPage } from '../pages/signup/signup';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
-
 //Import Firebase Module
 import firebase from 'firebase';
 import { FIREBASE_CONFIG } from "./app.config.firebase";
@@ -20,7 +19,7 @@ import { FIREBASE_CONFIG } from "./app.config.firebase";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
