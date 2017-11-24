@@ -50,6 +50,11 @@
     height: auto;
 }
 
+#alertvalidator {
+    display: flex;
+    justify-content: center;
+}
+
 .ios,
 .md {
     .item.item-input .item-inner {
