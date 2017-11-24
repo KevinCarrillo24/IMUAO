@@ -4,33 +4,6 @@ $text-input-md-show-error-highlight: false;
 .md,
 .wp {
     user-profile {
-        .profileHeader {
-            .profileImage {
-                ion-avatar {
-                    padding-bottom: 0.6rem;
-                    img {
-                        margin: auto;
-                        width: 14rem;
-                        height: 14rem;
-                        box-shadow: 1px 2px 5px #888888;
-                    }
-                }
-            }
-            .personalInfo {
-                .profileinfostudent {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    .studentname {
-                        font-size: 16px;
-                        color: #1ac8de;
-                    }
-                    .studentcode {
-                        font-size: 12px;
-                    }
-                }
-            }
-        }
         .separator {
             border: 1px solid black;
         }

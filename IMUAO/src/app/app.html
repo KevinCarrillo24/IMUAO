@@ -6,6 +6,30 @@
     </ion-header>
 
     <ion-content>
+      <div class="profileHeader">
+          <div class="profileImage">
+              <ion-item no-lines>
+                  <ion-avatar>
+                      <img src="http://www.elpopular.pe/sites/default/files/styles/img_620x465/public/imagen/2016/12/29/Noticia-169996-chavo.jpg?itok=2GhPf8q2">
+                  </ion-avatar>
+              </ion-item>
+          </div>
+          <div class="personalInfo">
+              <ion-item no-lines>
+                  <div class="profileinfostudent">
+                      <p class="studentname">Luis Fernando Jojoa Quintero</p>
+                      <p class="studentcode">2131248</p>
+                  </div>
+              </ion-item>
+          </div>
+      </div>
+
+      <div class="logout">
+        <ion-item>
+            <ion-label>Salir</ion-label>
+            <ion-icon name="log-out" item-left> </ion-icon>
+        </ion-item>
+      </div>
         <ion-list>
             <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}

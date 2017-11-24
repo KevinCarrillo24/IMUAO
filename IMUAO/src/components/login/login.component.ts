@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController,
-    AlertController } from 'ionic-angular';
+    AlertController, MenuController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { FirebaseProvider } from "../../services/firebase.service";
@@ -31,7 +31,9 @@ export class Login {
     constructor(public navCtrl: NavController, public navParams: NavParams
         , public formBuilder: FormBuilder,
         public alertCtrl: AlertController, public loadingCtrl: LoadingController,
-        public authData: FirebaseProvider, public nav: NavController) {
+        public authData: FirebaseProvider, public nav: NavController, public menu: MenuController) {
+
+        //this.menu.enable(false);
 
         this.loginForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],

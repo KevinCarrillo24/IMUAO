@@ -36,18 +36,18 @@ export class MyApp {
 
     firebase.initializeApp(FIREBASE_CONFIG);
     firebase.auth().onAuthStateChanged((user) => {
-      
+
             if (!user) {
                 console.log("not login");
                 this.rootPage = LoginPage;
-      
-      
+
+
             } else {
                 console.log("login");
                 //this.rootPage = HomePage;
-      
+
             }
-      
+
           });
   }
 
@@ -66,4 +66,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+  
 }
