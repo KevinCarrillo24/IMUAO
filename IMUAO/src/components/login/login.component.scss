@@ -1,3 +1,6 @@
+/* component-login { */
+
+
 /* .icon {
     font-size: 30px;
 } */
@@ -41,3 +44,22 @@
 .borderColor {
     border: 1px solid;
 }
+
+.logo {
+    width: 100%;
+    height: auto;
+}
+
+.ios,
+.md {
+    .item.item-input .item-inner {
+        border: 0;
+        border-bottom: 1px solid #333;
+        /* outline: 0; */
+        /* padding-left: 10px; */
+        /* color: blue; */
+    }
+}
+
+
+/* } */

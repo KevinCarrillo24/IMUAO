@@ -1,23 +1,24 @@
 <ion-card *ngFor="let project of arrayProjects">
-    <img src="../assets/imgs/logo.png" />
+    <img src="{{project.projectimage}}" />
     <ion-card-content>
-        <ion-card-title>
+        <ion-card-title color="secondary">
             {{project.projectname}}
         </ion-card-title>
         <h4>
             {{project.projectown}}
+            <!-- Creería que este campo se saca de personal info -->
         </h4>
         <p>
             {{project.projectdescription}}
         </p><br>
 
-        <ion-chip>
+        <ion-chip color="primary">
             <ion-label>{{project.projecttags[0]}}</ion-label>
         </ion-chip>
-        <ion-chip>
+        <ion-chip color="primary">
             <ion-label>{{project.projecttags[1]}}</ion-label>
         </ion-chip>
-        <ion-chip>
+        <ion-chip color="primary">
             <ion-label>{{project.projecttags[2]}}</ion-label>
         </ion-chip>
     </ion-card-content>

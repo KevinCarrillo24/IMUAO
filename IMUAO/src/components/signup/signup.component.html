@@ -8,11 +8,17 @@
                 <ion-input #name formControlName="name" type="text" placeholder="Nombre(s)">
                 </ion-input>
             </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.name.valid  && signupForm.controls.name.dirty">
+                <p id="alertvalidator">No debe exceder los 30 caracteres</p>
+            </ion-item>
             <ion-item class="item-trns">
                 <!-- <ion-label floating>Apellido(s)</ion-label> -->
                 <ion-icon name="person" item-left> </ion-icon>
                 <ion-input #lastname formControlName="lastname" type="text" placeholder="Apellido(s)">
                 </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.lastname.valid  && signupForm.controls.lastname.dirty">
+                <p id="alertvalidator">No debe exceder los 30 caracteres</p>
             </ion-item>
             <ion-item class="item-trns">
                 <!-- <ion-label floating>Código</ion-label> -->
@@ -20,11 +26,17 @@
                 <ion-input #code formControlName="code" type="number" placeholder="Código">
                 </ion-input>
             </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.code.valid  && signupForm.controls.code.dirty">
+                <p id="alertvalidator">Ingresa un código estudiantil válido</p>
+            </ion-item>
             <ion-item class="item-trns">
                 <!-- <ion-label floating>Número telefónico</ion-label> -->
                 <ion-icon name="call" item-left></ion-icon>
                 <ion-input #cellphone formControlName="cellphone" type="number" placeholder="Número telefónico">
                 </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.cellphone.valid  && signupForm.controls.cellphone.dirty">
+                <p id="alertvalidator">Ingresa un número telefónico válido</p>
             </ion-item>
             <ion-item class="item-trns">
                 <!-- <ion-label floating>Email</ion-label> -->
@@ -33,7 +45,7 @@
                 </ion-input>
             </ion-item>
             <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
-                <p>Por favor ingresa un correo válido.</p>
+                <p id="alertvalidator">Por favor ingresa un correo válido.</p>
             </ion-item>
             <ion-item class="item-trns">
                 <!-- <ion-label floating>Contraseña</ion-label> -->
@@ -44,10 +56,12 @@
                 <ion-icon name="eye-off" large *ngIf="showpass" item-right (click)="showPassword()"></ion-icon>
             </ion-item>
             <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
-                <p>Tu contraseña debe contener más de 6 caracteres.</p>
+                <p id="alertvalidator">Por favor ingresa más de 6 caracteres.</p>
             </ion-item>
 
             <button ion-button block type="submit" color="secondary">Hecho</button>
+
+            <p text-center>¿Ya eres usuario? <a class="centerText_reg" (click)="goToLogin()">Ingresa</a></p>
         </div>
     </div>
 </form>

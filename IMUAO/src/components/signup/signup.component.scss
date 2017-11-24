@@ -1,0 +1,20 @@
+component-signup {
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+    #alertvalidator {
+        display: flex;
+        justify-content: center;
+    }
+    .centerText_reg {
+        color: #de301a;
+        font-weight: bold;
+    }
+    p {
+        color: #de301a;
+    }
+}

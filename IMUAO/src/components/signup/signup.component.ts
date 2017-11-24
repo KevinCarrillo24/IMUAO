@@ -34,12 +34,28 @@ export class Signup {
         public alertCtrl: AlertController) {
 
         this.signupForm = formBuilder.group({
-            name: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-            lastname: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(30), Validators.required])],
-            code: ['', Validators.compose([Validators.minLength(7), Validators.maxLength(7), Validators.required])],
-            cellphone: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(10), Validators.required])],
-            email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
-            password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+            name: ['', Validators.compose(
+                [Validators.minLength(1), 
+                Validators.maxLength(30), 
+                Validators.required])],
+            lastname: ['', Validators.compose(
+                [Validators.minLength(1), 
+                Validators.maxLength(30), 
+                Validators.required])],
+            code: ['', Validators.compose(
+                [Validators.minLength(7), 
+                Validators.maxLength(7), 
+                Validators.required])],
+            cellphone: ['', Validators.compose(
+                [Validators.minLength(10), 
+                Validators.maxLength(10), 
+                Validators.required])],
+            email: ['', Validators.compose(
+                [Validators.required, 
+                EmailValidator.isValid])],
+            password: ['', Validators.compose(
+                [Validators.minLength(6), 
+                Validators.required])]
             //personalEmail: ['', Validators.compose([Validators.required, EmailValidator.isValid])]
         })
         this.studentphoto= "";
@@ -90,6 +106,10 @@ export class Signup {
     showPassword(): any {
         this.type = this.type === 'password' ?  'text' : 'password';
         this.showpass = !this.showpass;
+    }
+
+    goToLogin(): void {
+        this.nav.push(LoginPage);
     }
 
 }
