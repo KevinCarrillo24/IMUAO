@@ -1,3 +1,4 @@
+import { BottomNav } from '../components/bottom-nav/bottom-nav.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -10,7 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { ProfilePage } from '../pages/profile/profile';
-
+import { AddProject } from '../pages/add-project/add-project';
 
 //Import Components
 import { UserProfile } from '../components/userprofile/userprofile.component';
@@ -38,7 +39,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Login,
     ResetPasswordPage,
     ResetPassword,
-    CardProject
+    CardProject,
+    AddProject,
+    BottomNav
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     SignupPage,
     ProfilePage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    AddProject
   ],
   providers: [
     StatusBar,

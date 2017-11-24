@@ -15,4 +15,5 @@ export class CardProject{
         this.arrayProjects = _firebaseService.getAllProjects();
     }
     
+
 }

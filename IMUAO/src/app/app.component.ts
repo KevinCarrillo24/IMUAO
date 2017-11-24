@@ -1,3 +1,4 @@
+import { AddProject } from '../pages/add-project/add-project';
 import { ProfilePage } from '../pages/profile/profile';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
