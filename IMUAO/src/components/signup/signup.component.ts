@@ -25,6 +25,7 @@ export class Signup {
     public studentemail:string;
     public studentphoto:string;
     public studentskills: string;
+    public studentoptionalemail:string;
     public type= "password";
     public showpass = false;
 
@@ -56,10 +57,10 @@ export class Signup {
             password: ['', Validators.compose(
                 [Validators.minLength(6), 
                 Validators.required])]
-            //personalEmail: ['', Validators.compose([Validators.required, EmailValidator.isValid])]
         })
         this.studentphoto= "";
         this.studentskills="";
+        this.studentoptionalemail="";
     }
 
     /**
@@ -78,7 +79,8 @@ export class Signup {
                 this.signupForm.value.name,
                 this.signupForm.value.lastname,
                 this.signupForm.value.cellphone,
-                this.studentskills))
+                this.studentskills,
+                this.studentoptionalemail))
                 .then(() => {
                     this.loading.dismiss().then(() => {
                         this.nav.setRoot(HomePage);

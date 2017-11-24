@@ -33,7 +33,7 @@ export class Login {
         public alertCtrl: AlertController, public loadingCtrl: LoadingController,
         public authData: FirebaseProvider, public nav: NavController, public menu: MenuController) {
 
-        //this.menu.enable(false);
+        this.menu.enable(false);
 
         this.loginForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -59,7 +59,8 @@ export class Login {
                           data.studentfullname,
                           data.studentfulllastname,
                           data.studentphonenumber,
-                          data.studentskills
+                          data.studentskills,
+                          data.studentoptionalemail
                         );
                     this.user = studentInfo;
                     this.nav.setRoot(HomePage,{student: this.user});
@@ -96,5 +97,4 @@ export class Login {
         this.type = this.type === 'password' ?  'text' : 'password';
         this.showpass = !this.showpass;
     }
-
 }

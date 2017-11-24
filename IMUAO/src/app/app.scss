@@ -1,75 +1,72 @@
-// http://ionicframework.com/docs/theming/
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
-/* .no-scroll .scroll-content {
+    // http://ionicframework.com/docs/theming/
+    // App Global Sass
+    // --------------------------------------------------
+    // Put style rules here that you want to apply globally. These
+    // styles are for the entire app and not just one component.
+    // Additionally, this file can be also used as an entry point
+    // to import other Sass files to be included in the output CSS.
+    //
+    // Shared Sass variables, which can be used to adjust Ionic's
+    // default Sass variables, belong in "theme/variables.scss".
+    //
+    // To declare rules for a specific mode, create a child rule
+    // for the .md, .ios, or .wp mode classes. The mode class is
+    // automatically applied to the <body> element in the app.
+    /* .no-scroll .scroll-content {
     overflow: hidden;
 } */
-
-.ios,
-.md,
-.wp {
-  ion-menu {
-    ion-header {}
-
-    ion-toolbar {
-      background-color: #1ac8de;
+    
+    //$menu-width:150px;
+    .ios,
+    .md,
+    .wp {
+        ion-menu {
+            ion-header {}
+            ion-toolbar {
+                background-color: #1ac8de;
+            }
+            ion-content {
+                .profileHeader {
+                    .profileImage {
+                        ion-avatar {
+                            padding-bottom: 0.6rem;
+                            img {
+                                margin: auto;
+                                width: 14rem;
+                                height: 14rem;
+                                box-shadow: 1px 2px 5px #888888;
+                            }
+                        }
+                    }
+                    .personalInfo {
+                        .profileinfostudent {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            .studentname {
+                                font-size: 15px;
+                                color: #1ac8de;
+                            }
+                            .studentcode {
+                                font-size: 13px;
+                                color: #1ac8de;
+                            }
+                        }
+                    }
+                }
+                .logOutButton {
+                    text-align: center;
+                }
+                .logOutButton {
+                    ion-item {
+                        ion-label {
+                            margin-left: 0;
+                        }
+                        ion-icon {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
-
-    ion-content {
-      .profileHeader {
-        .profileImage {
-          ion-avatar {
-            padding-bottom: 0.6rem;
-
-            img {
-              margin: auto;
-              width: 14rem;
-              height: 14rem;
-              box-shadow: 1px 2px 5px #888888;
-            }
-          }
-        }
-
-        .personalInfo {
-          .profileinfostudent {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            .studentname {
-              font-size: 16px;
-              color: #1ac8de;
-            }
-
-            .studentcode {
-              font-size: 12px;
-            }
-          }
-        }
-      }
-
-      .logout {
-        ion-item {
-          ion-label {
-            margin-left: 0;
-          }
-
-          ion-icon {
-            margin-right: 0;
-          }
-        }
-      }
-    }
-  }
-}
