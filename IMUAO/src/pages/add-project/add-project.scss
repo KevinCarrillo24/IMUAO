@@ -1,0 +1,22 @@
+#idm-add-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn-cancelar {
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
+#idm-titulo {
+    color: color($colors, primary);
+}
+
+#idm-clasifica {
+    color: color($colors, primary);
+}
+
+#img-add {
+    width: 50%;
+}
