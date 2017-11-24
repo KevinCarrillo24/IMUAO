@@ -10,8 +10,10 @@
         <div class="personalInfo">
             <ion-item>
                 <div class="profileinfostudent">
-                    <p class="studentname">{{studentInfo.studentfullname}} {{studentInfo.studentfulllastname}}</p>
-                    <p class="studentcode">{{studentInfo.studentcode}}</p>
+                    <!-- <p class="studentname">{{studentInfo.studentfullname}} {{studentInfo.studentfulllastname}}</p>
+                    <p class="studentcode">{{studentInfo.studentcode}}</p> -->
+                    <p class="studentname">Nombre y Apellido </p>
+                    <p class="studentcode">1234567</p>
                 </div>
             </ion-item>
         </div>
@@ -23,7 +25,8 @@
         <form [formGroup]="Datastudentform" (ngSubmit)="updatestudentdata()">
             <div class="editableInfo">
                 <ion-item class="editFields">
-                    <ion-input readonly="{{editAble}}" formControlName="studentphonenumber" value="{{studentInfo.studentphonenumber}}" placeholder="Número telefónico"></ion-input>
+                    <!-- <ion-input readonly="{{editAble}}" formControlName="studentphonenumber" value="{{studentInfo.studentphonenumber}}" placeholder="Número telefónico"></ion-input> -->
+                    <ion-input readonly="{{editAble}}" formControlName="studentphonenumber" value="1234567890" placeholder="Número telefónico"></ion-input>
                     <ion-label>
                         <ion-icon name="call"></ion-icon>
                     </ion-label>
@@ -34,7 +37,8 @@
                     </div>
                 </ng-container>
                 <ion-item class="editFields">
-                    <ion-input readonly="{{editAble}}" type="email" formControlName="studentemail" value="{{studentInfo.studentemail}}" placeholder="Correo electrónico"></ion-input>
+                    <!-- <ion-input readonly="{{editAble}}" type="email" formControlName="studentemail" value="{{studentInfo.studentemail}}" placeholder="Correo electrónico"></ion-input> -->
+                    <ion-input readonly="{{editAble}}" type="email" formControlName="studentemail" value="email@email.com" placeholder="Correo electrónico"></ion-input>
                     <ion-label>
                         <ion-icon name="mail"></ion-icon>
                     </ion-label>
