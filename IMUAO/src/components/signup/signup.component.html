@@ -58,8 +58,16 @@
             <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
                 <p id="alertvalidator">Por favor ingresa más de 6 caracteres.</p>
             </ion-item>
+            <!-- <ion-item class="item-trns">
+                <ion-icon name="mail" item-left></ion-icon>
+                <ion-input #optionalemail formControlName="optionalemail" type="email" [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty" placeholder="Correo personal (opcional)">
+                </ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+                <p id="alertvalidator">Por favor ingresa un correo válido.</p>
+            </ion-item> -->
 
-            <button ion-button block type="submit" color="secondary">Hecho</button>
+            <button ion-button block type="submit" color="secondary" [disabled]="signupForm.invalid">Hecho</button>
 
             <p text-center>¿Ya eres usuario? <a class="centerText_reg" (click)="goToLogin()">Ingresa</a></p>
         </div>

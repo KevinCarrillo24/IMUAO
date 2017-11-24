@@ -13,6 +13,7 @@ import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 //Import Firebase Module
 import firebase from 'firebase';
 import { FIREBASE_CONFIG } from "./app.config.firebase";
+import { FirebaseProvider } from "../services/firebase.service";
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +25,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen
+    , public _firebaseService: FirebaseProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -65,6 +67,12 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logOut() {
+    this._firebaseService.logoutStudent().then(() => {
+        this.nav.setRoot(LoginPage);
+    });
   }
   
 }

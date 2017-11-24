@@ -6,6 +6,7 @@ export class Student{
     public studentfullname:string,
     public studentfulllastname:string,
     public studentphonenumber:number,
-    public studentskills: string
+    public studentskills: string,
+    public studentoptionalemail:string
   ){}
 }

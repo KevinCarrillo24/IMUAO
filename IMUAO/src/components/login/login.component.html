@@ -46,12 +46,13 @@
                     <p id="alertvalidator">Por favor ingresa más de 6 caracteres</p>
                 </ion-item>
 
-                <button ion-button clear float-right color="light" (click)="goToResetPassword()">
+                <!-- <button ion-button clear float-right color="light" (click)="goToResetPassword()">
                 Olvidé mi contraseña
-              </button>
+              </button> -->
+                <p text-right><a class="centerText" (click)="goToResetPassword()">Olvidé mi contraseña</a></p>
 
-                <button color="secondary" ion-button block type="submit">Iniciar</button>
-                <p text-center>¿Nuevo aquí? <a class="centerText" (click)="goToSignup()">Regístrate</a></p>
+                <button id="iniciar" color="secondary" ion-button block type="submit" [disabled]="loginForm.invalid">Iniciar</button>
+                <p text-center class="tituloRegistro">¿Nuevo aquí? <a class="centerText" (click)="goToSignup()">Regístrate</a></p>
 
             </div>
         </div>

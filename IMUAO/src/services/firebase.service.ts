@@ -25,7 +25,8 @@ export class FirebaseProvider {
         studentfullname: student.studentfullname,
         studentfulllastname: student.studentfulllastname,
         studentphonenumber: student.studentphonenumber,
-        studentskills: student.studentskills
+        studentskills: student.studentskills,
+        studentoptionalemail:student.studentoptionalemail
       });
     });
   }
@@ -114,7 +115,8 @@ export class FirebaseProvider {
      studentfullname: student.studentfullname,
      studentfulllastname: student.studentfulllastname,
      studentphonenumber: student.studentphonenumber,
-     studentskills: student.studentskills
+     studentskills: student.studentskills,
+     studentoptionalemail: student.studentoptionalemail
   })
   }
 
