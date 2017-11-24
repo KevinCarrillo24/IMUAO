@@ -137,15 +137,7 @@ export class FirebaseProvider {
    * @param uid Identificador de usuario
    */
   getStudentinfo(uid: string): Student {
-    var studentInfo: Student = new Student(
-      0,
-      "trillos@uao.edu.co",
-      "",
-      "",
-      "",
-      0,
-      ""
-    );
+    var studentInfo: Student;
     firebase.database().ref("/Students/" + uid + "/PersonalInfo").on('value', personSnapshot => {
     var data = personSnapshot.val();
     studentInfo = new Student(
@@ -176,9 +168,10 @@ export class FirebaseProvider {
    * @param email Correo autorizado en Firebase
    * @param password Contraseña relacionada con el correo de usuario
    */
-  loginStudent(email: string, password: string){
+  loginStudent(email: string, password: string):Promise<any>{
+    var studentInfo: Student;
     return firebase.auth().signInWithEmailAndPassword(email, password);
-  }
+}
 
   /**
    * Metodo para modificar contraseña de usuario en caso de olvido
