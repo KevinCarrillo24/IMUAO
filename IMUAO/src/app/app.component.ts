@@ -1,11 +1,12 @@
-import { ProfilePage } from '../pages/profile/profile';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';import { LoginPage } from '../pages/login/login';
+import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { ProfilePage } from '../pages/profile/profile';
 import { SignupPage } from '../pages/signup/signup';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
@@ -19,7 +20,7 @@ import { FIREBASE_CONFIG } from "./app.config.firebase";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -33,7 +34,7 @@ export class MyApp {
       { title: 'List', component: ListPage }
     ];
 
-    firebase.initializeApp(FIREBASE_CONFIG);
+    /*firebase.initializeApp(FIREBASE_CONFIG);
     firebase.auth().onAuthStateChanged((user) => {
 
             if (!user) {
@@ -47,7 +48,7 @@ export class MyApp {
 
             }
 
-          });
+          });*/
   }
 
   initializeApp() {
@@ -65,5 +66,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  
+
 }

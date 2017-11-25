@@ -19,14 +19,12 @@
         </div>
     </div>
 
-    <div class="separator"></div>
-
     <ion-card-content>
         <form [formGroup]="Datastudentform" (ngSubmit)="updatestudentdata()">
             <div class="editableInfo">
-                <ion-item class="editFields">
+                <ion-item class="editFields" no-lines>
                     <!-- <ion-input readonly="{{editAble}}" formControlName="studentphonenumber" value="{{studentInfo.studentphonenumber}}" placeholder="Número telefónico"></ion-input> -->
-                    <ion-input readonly="{{editAble}}" formControlName="studentphonenumber" value="1234567890" placeholder="Número telefónico"></ion-input>
+                    <ion-input class="ion-input" readonly="{{editAble}}" formControlName="studentphonenumber" value="1234567890" placeholder="Número telefónico"></ion-input>
                     <ion-label>
                         <ion-icon name="call"></ion-icon>
                     </ion-label>
@@ -36,11 +34,11 @@
                         <p>{{validation.message}}</p>
                     </div>
                 </ng-container>
-                <ion-item class="editFields">
+                <ion-item class="editFields" no-lines>
                     <!-- <ion-input readonly="{{editAble}}" type="email" formControlName="studentemail" value="{{studentInfo.studentemail}}" placeholder="Correo electrónico"></ion-input> -->
-                    <ion-input readonly="{{editAble}}" type="email" formControlName="studentemail" value="email@email.com" placeholder="Correo electrónico"></ion-input>
+                    <ion-input class="inputEmail" readonly="{{editAble}}" type="email" formControlName="studentemail" value="email@email.com" placeholder="Correo electrónico"></ion-input>
                     <ion-label>
-                        <ion-icon name="mail"></ion-icon>
+                        <ion-icon left name="mail"></ion-icon>
                     </ion-label>
                 </ion-item>
                 <ng-container *ngFor="let validation of validation_messages.studentemail">
@@ -50,17 +48,23 @@
                 </ng-container>
             </div>
             <ion-item>
-                <ion-label>Editar información</ion-label>
+                <ion-label class="editLabel">Editar información</ion-label>
                 <ion-toggle checked="false" (ionChange)="editInfo()"></ion-toggle>
             </ion-item>
             <div class="btnsubmit" *ngIf="!editAble" text-center>
                 <button ion-button small type="submit" [disabled]="!Datastudentform.valid">Actualizar</button>
             </div>
         </form>
-
-
     </ion-card-content>
-
 </ion-card>
 
-<button ion-button (click)="logOut()">Cerrar sesión  <ion-icon name="log-out"></ion-icon> </button>
+<ion-card>
+  <div class="projects" *ngFor="let project of projects">
+    <div class="project">
+      <ion-avatar>
+          <img src="{{project.projectimage}}">
+      </ion-avatar>
+      <ion-label class="labelEdit">{{project.projectname}}</ion-label>
+    </div>
+  </div>
+</ion-card>

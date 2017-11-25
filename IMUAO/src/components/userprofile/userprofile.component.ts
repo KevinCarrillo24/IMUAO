@@ -42,14 +42,12 @@ public editAble: boolean;
     }
   }
 
-  constructor(private formBuilder: FormBuilder, public _firebaseService: FirebaseProvider, public navCtrl: NavController) {
+  constructor(private formBuilder: FormBuilder, public _firebaseService: FirebaseProvider, public nav: NavController) {
 
     this.Datastudentform = this.formBuilder.group({
       studentemail: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
       studentphonenumber: ['', Validators.compose([Validators.pattern('^(0|[1-9][0-9]*)$'),Validators.minLength(10), Validators.maxLength(10), Validators.required])],
     });
-
-
   }
 
   editInfo(){
@@ -78,17 +76,10 @@ public editAble: boolean;
 
     var uiduser = this._firebaseService.getCurrentuserid();
 
-    //var updateData: any = this.Datastudentform.value;
+    var updateData: any = this.Datastudentform.value;
 
-    // this.studentInfo = this._firebaseService.getStudentinfo(uiduser);
+    this._firebaseService.updateStudent(uiduser, updateData);
     // console.log(this.studentInfo);
 
 }
-
-logOut() {
-  this._firebaseService.logoutStudent().then(() => {
-      this.navCtrl.setRoot(LoginPage);
-  });
-}
-
   }
