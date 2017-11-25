@@ -87,6 +87,7 @@ export class Login {
 
     goToSignup(): void {
         this.nav.push(SignupPage);
+        //
     }
 
     goToResetPassword(): void {
