@@ -45,6 +45,7 @@ export class Login {
     loginUser(): void {
         if (!this.loginForm.valid) {
             console.log(this.loginForm.value);
+
         } else {
             this.authData.loginStudent(this.loginForm.value.email, this.loginForm.value.password).then(authData => {
                 var uid: string = authData.uid;
